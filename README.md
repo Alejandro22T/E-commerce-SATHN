@@ -25,4 +25,5 @@ src/main/java/com/tuempresa/ecommerce/
 │   └── Carrito.java     # Representa la orden/carrito de compras
 └── EcommerceApplication.java # Punto de entrada y prueba de consola
 
-![captura.png](../../../img/captura.png)
+
+<img width="865" height="861" alt="captura" src="https://github.com/user-attachments/assets/baf07aa7-bb5b-4670-b458-7474d304f29e" />
