@@ -1,7 +1,7 @@
 # Sistema E-Commerce en Java (Prueba de Concepto - POO)
 
 ## Descripción del Proyecto
-Este proyecto es una aplicación desarrollada en **Java** con **Spring Boot** para modelar la lógica base de un sistema de comercio electrónico. Aplica los principios fundamentales de la **Programación Orientada a Objetos (POO)** como encapsulamiento, composición y modularidad para gestionar usuarios, productos y carritos de compras.
+Este proyecto es una aplicación desarrollada en **Java** con **Spring Boot** para modelar la lógica base de un sistema de comercio electrónico. Aplica los principios fundamentales de la **Programación Orientada a Objetos (POO)** como encapsulamiento, composición, modularidad y herencia para gestionar usuarios, productos y carritos de compras, a través de la herencia permite diferenciar servicios digitales (SaaS/Software) de servicios de infraestructura presencial (Mantenimiento/Redes), así como categorizar a los usuarios entre clientes y administradores
 
 ---
 
@@ -18,12 +18,16 @@ Este proyecto es una aplicación desarrollada en **Java** con **Spring Boot** pa
 La aplicación organiza sus clases en el paquete `model` respetando la separación de responsabilidades:
 
 ```text
-src/main/java/com/tuempresa/ecommerce/
+src/main/java/com/sathn/ecommerce/
 ├── model/
-│   ├── Producto.java    # Representa los artículos disponibles
-│   ├── Usuario.java     # Representa los clientes de la plataforma
-│   └── Carrito.java     # Representa la orden/carrito de compras
-└── EcommerceApplication.java # Punto de entrada y prueba de consola
+│   ├── Producto.java              # Superclase base para la oferta de la empresa
+│   ├── ProductoDigital.java       # Subclase: Licencias Cloud, SaaS, Software
+│   ├── ProductoFisico.java        # Subclase: Mantenimiento de Data Centers, Redes
+│   ├── Usuario.java               # Superclase base para los actores del sistema
+│   ├── Cliente.java               # Subclase: Clientes corporativos
+│   ├── Administrador.java         # Subclase: Personal de ingeniería de SATHN
+│   └── Carrito.java               # Gestión transaccional y agregación de servicios
+└── EcommerceApplication.java      # Punto de entrada y runner de consola para pruebas
 
 
 <img width="865" height="861" alt="captura" src="https://github.com/user-attachments/assets/baf07aa7-bb5b-4670-b458-7474d304f29e" />
