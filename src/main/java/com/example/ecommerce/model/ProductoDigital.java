@@ -16,4 +16,11 @@ public class ProductoDigital extends Producto{
 
     public String getUrlPlataforma() { return urlPlataforma; }
     public void setUrlPlataforma(String urlPlataforma) {  this.urlPlataforma = urlPlataforma; }
+
+    @Override
+    public String mostrarDetalle() {
+        return super.mostrarDetalle()
+                + " | Tipo de licencia: " + tipoLicencia
+                + " | URL de plataforma: " + urlPlataforma;
+    }
 }

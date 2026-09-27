@@ -24,6 +24,18 @@ src/main/java/com/tuempresa/ecommerce/
 │   ├── Usuario.java     # Representa los clientes de la plataforma
 │   └── Carrito.java     # Representa la orden/carrito de compras
 └── EcommerceApplication.java # Punto de entrada y prueba de consola
+```
 
+## Polimorfismo y sobrecarga
+
+`ProductoDigital` y `ProductoFisico` heredan de `Producto`. El carrito recibe
+ambos a través de `agregarProducto(Producto)` y `mostrarDetallesProductos()`
+invoca `mostrarDetalle()` de cada instancia, mostrando los detalles específicos
+mediante sobreescritura.
+
+El carrito también sobrecarga `agregarProducto` para recibir un producto por
+ID junto con su catálogo (`agregarProducto(int, List<? extends Producto>)`), o
+crear una entrada indicando nombre y precio
+(`agregarProducto(String, double)`).
 
 <img width="865" height="861" alt="captura" src="https://github.com/user-attachments/assets/baf07aa7-bb5b-4670-b458-7474d304f29e" />

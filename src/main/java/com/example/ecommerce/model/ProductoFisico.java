@@ -15,4 +15,11 @@ public class ProductoFisico extends Producto {
 
     public Double getDimensiones() { return dimensiones; }
     public void setDimensiones(Double dimensiones) { this.dimensiones = dimensiones; }
+
+    @Override
+    public String mostrarDetalle() {
+        return super.mostrarDetalle()
+                + " | Peso: " + peso + " kg"
+                + " | Dimensiones: " + dimensiones;
+    }
 }

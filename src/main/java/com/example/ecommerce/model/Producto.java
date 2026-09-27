@@ -54,4 +54,10 @@ public class Producto {
         this.stock = stock;
     }
 
+    public String mostrarDetalle() {
+        return String.format(
+                "Producto: %s | Descripción: %s | Precio: $%.2f | Stock: %d",
+                nombre, descripcion, precio, stock);
+    }
+
 }
