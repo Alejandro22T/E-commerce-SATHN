@@ -18,7 +18,7 @@ Este proyecto es una aplicación desarrollada en **Java** con **Spring Boot** pa
 La aplicación organiza sus clases en el paquete `model` respetando la separación de responsabilidades:
 
 ```text
-src/main/java/com/sathn/ecommerce/
+src/main/java/com/example/ecommerce/
 ├── model/
 │   ├── Producto.java              # Superclase base para la oferta de la empresa
 │   ├── ProductoDigital.java       # Subclase: Licencias Cloud, SaaS, Software
@@ -28,7 +28,9 @@ src/main/java/com/sathn/ecommerce/
 │   ├── Administrador.java         # Subclase: Personal de ingeniería de SATHN
 │   └── Carrito.java               # Gestión transaccional y agregación de servicios
 └── EcommerceApplication.java      # Punto de entrada y runner de consola para pruebas
+```
 
+## Polimorfismo y sobreescritura
 `ProductoDigital` y `ProductoFisico` heredan de `Producto`. El carrito recibe
 ambos a través de `agregarProducto(Producto)` y `mostrarDetallesProductos()`
 invoca `mostrarDetalle()` de cada instancia, mostrando los detalles específicos
