@@ -1,6 +1,7 @@
 package com.example.ecommerce.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -69,10 +70,10 @@ public class Carrito {
 
     // Getters
     public List<Producto> getProductos() {
-        return productos;
+        return Collections.unmodifiableList(new ArrayList<>(productos));
     }
 
     public double getTotal() {
-        return total;
+        return calcularTotal();
     }
 }

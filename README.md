@@ -41,4 +41,32 @@ ID junto con su catálogo (`agregarProducto(int, List<? extends Producto>)`), o
 crear una entrada indicando nombre y precio
 (`agregarProducto(String, double)`).
 
+## Encapsulamiento, validaciones y abstracción
+
+Los atributos de `Producto`, `Usuario`, `Carrito` y sus clases derivadas son
+privados. El acceso y las modificaciones se realizan mediante métodos públicos,
+que validan los datos antes de guardarlos:
+
+* `Producto` rechaza nombres vacíos, precios negativos o no finitos y stock
+  negativo. `ProductoFisico` requiere peso y dimensiones positivos;
+  `ProductoDigital` requiere una licencia y una URL HTTP o HTTPS válida.
+* `Usuario` valida que el nombre y la contraseña no estén vacíos y que el correo
+  tenga un formato válido. La contraseña no se expone mediante un getter.
+* `Carrito` protege su colección: `getProductos()` devuelve una copia no
+  modificable, y agregar o quitar elementos se hace mediante los métodos del
+  carrito. `getTotal()` calcula el importe con los precios actuales de los
+  productos.
+
+La abstracción de productos se implementa mediante `Producto` como clase base
+con los atributos comunes (ID, nombre, descripción, precio y stock).
+`ProductoDigital` y `ProductoFisico` heredan esos datos y mantienen sus
+propiedades específicas. Ambas sobrescriben `mostrarDetalle()` para presentar
+su información particular.
+
+Las pruebas automatizadas se pueden ejecutar con:
+
+```bash
+./mvnw test
+```
+
 <img width="865" height="861" alt="captura" src="https://github.com/user-attachments/assets/baf07aa7-bb5b-4670-b458-7474d304f29e" />

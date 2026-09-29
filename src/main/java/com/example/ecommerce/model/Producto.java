@@ -11,10 +11,10 @@ public class Producto {
     // 2. Constructor completo para inicializar el objeto
     public Producto(int id, String nombre, String descripcion, double precio, int stock) {
         this.id = id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.precio = precio;
-        this.stock = stock;
+        setNombre(nombre);
+        setDescripcion(descripcion);
+        setPrecio(precio);
+        setStock(stock);
     }
 
     public Producto() {
@@ -32,6 +32,9 @@ public class Producto {
         return nombre;
     }
     public void setNombre(String nombre){
+        if (nombre == null || nombre.isBlank()) {
+            throw new IllegalArgumentException("El nombre no puede estar vacío");
+        }
         this.nombre = nombre;
     }
     public String getDescripcion(){
@@ -45,12 +48,18 @@ public class Producto {
         return precio;
     }
     public void setPrecio(double precio){
+        if (!Double.isFinite(precio) || precio < 0) {
+            throw new IllegalArgumentException("El precio debe ser un número válido no negativo");
+        }
         this.precio = precio;
     }
     public int getStock(){
         return stock;
     }
     public void setStock(int stock){
+        if (stock < 0) {
+            throw new IllegalArgumentException("El stock no puede ser negativo");
+        }
         this.stock = stock;
     }
 
